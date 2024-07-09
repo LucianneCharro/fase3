@@ -1,0 +1,11 @@
+fiap/salaobeleza/service/ClienteServiceTest.class
+fiap/salaobeleza/ServiceIntegration/ServicoIntegrationTest.class
+fiap/salaobeleza/service/AgendamentoServiceTest.class
+fiap/salaobeleza/service/ProfissionalServiceTest.class
+fiap/salaobeleza/ServiceIntegration/ClienteIntegrationTest.class
+fiap/salaobeleza/SalaoBelezaApplicationTests.class
+fiap/salaobeleza/service/PacoteServicosServiceTest.class
+fiap/salaobeleza/ServiceIntegration/AgendamentoIntegrationTest.class
+fiap/salaobeleza/service/ServicoServiceTest.class
+fiap/salaobeleza/ServiceIntegration/PacoteServicosIntegrationTest.class
+fiap/salaobeleza/ServiceIntegration/ProfissionalIntegrationTest.class
