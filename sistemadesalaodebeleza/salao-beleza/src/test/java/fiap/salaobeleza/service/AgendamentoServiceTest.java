@@ -41,18 +41,15 @@ public class AgendamentoServiceTest {
         clienteMock.setId(1L);
         clienteMock.setNome("Maria");
         clienteMock.setEmail("L@gmail.com");
-        // Mock para retornar o cliente quando o findById for chamado
         when(clienteRepository.findById(1L)).thenReturn(Optional.of(clienteMock));
 
         Profissional profissionalMock = new Profissional();
         profissionalMock.setId(1L);
         profissionalMock.setNome("Maria");
-        // Mock para retornar o profissional quando o findById for chamado
         when(profissionalRepository.findById(1L)).thenReturn(Optional.of(profissionalMock));
 
         Servico servicoMock = new Servico();
         servicoMock.setId(1L);
-        // Mock para retornar o servico quando o findById for chamado
         when(servicoRepository.findById(1L)).thenReturn(Optional.of(servicoMock));
     }
 

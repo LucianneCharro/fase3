@@ -39,15 +39,11 @@ public class ProfissionalServiceTest {
     @BeforeEach
     public void setup() {
         MockitoAnnotations.openMocks(this);
-        // Outras configurações de mock necessárias
 
         Servico servicoMock = new Servico();
         servicoMock.setId(1L);
-        // Configurar outros campos necessários do servicoMock
-        // Usar lenient() para o stubbing que pode não ser necessário em todos os testes
         lenient().when(servicoRepository.findById(1L)).thenReturn(Optional.of(servicoMock));
 
-        // Inicialização do ProfissionalService com os mocks configurados
         profissionalService = new ProfissionalService(profissionalRepository, servicoRepository);
     }
 
@@ -58,36 +54,27 @@ public class ProfissionalServiceTest {
         servico.setId(1L);
         profissional.setServicosHabilitados(new HashSet<>(Arrays.asList(servico)));
 
-        // Configuração do mock para garantir que o findById retorna um Optional de Servico
         when(servicoRepository.findById(1L)).thenReturn(Optional.of(servico));
 
-        // Mock do comportamento de save para retornar o profissional
         when(profissionalRepository.save(any(Profissional.class))).thenReturn(profissional);
 
         Profissional result = profissionalService.createProfissional(profissional);
 
-        // Verificar se o profissional retornado é igual ao esperado
         assertEquals(profissional, result);
 
-        // Verificação adicional para garantir que o findById está sendo chamado corretamente
         verify(servicoRepository).findById(1L);
     }
 
     @Test
     public void testGetProfissionalById() {
-        // ID do profissional a ser buscado
         Long id = 1L;
-        // Criação de um profissional mock para simular o retorno do repositório
         Profissional profissional = new Profissional();
         profissional.setId(id);
 
-        // Configuração do mock para retornar o profissional quando o método findById for chamado com o ID correto
         when(profissionalRepository.findById(id)).thenReturn(Optional.of(profissional));
 
-        // Chamada do método a ser testado
         Profissional result = profissionalService.getProfissionalById(id);
 
-        // Verificar se o profissional retornado é igual ao esperado
         assertEquals(profissional.getId(), result.getId(), "O ID do profissional retornado deve ser igual ao ID buscado.");
     }
     @Test

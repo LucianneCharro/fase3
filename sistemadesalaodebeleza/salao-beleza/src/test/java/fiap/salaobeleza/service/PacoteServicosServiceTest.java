@@ -36,14 +36,11 @@ public class PacoteServicosServiceTest {
         MockitoAnnotations.openMocks(this);
         Servico servicoMock = new Servico();
         servicoMock.setId(1L);
-        // Ensure the mock returns the expected Servico object for any Long type argument
-        // This makes the mock more flexible and ensures it returns the mock Servico for any ID
         lenient().when(servicoRepository.findById(anyLong())).thenReturn(Optional.of(servicoMock));
         pacoteServicosService = new PacoteServicosService(pacoteServicosRepository, servicoRepository);
     }
     @Test
     public void createPacoteServicos_ValidPacoteServicos_ReturnsPacoteServicos() {
-        // Preparação
         PacoteServicos pacoteServicos = new PacoteServicos();
         pacoteServicos.setId(1L);
         pacoteServicos.setPreco(10.00);
@@ -57,10 +54,8 @@ public class PacoteServicosServiceTest {
         when(servicoRepository.findById(1L)).thenReturn(Optional.of(servico));
         when(pacoteServicosRepository.save(any(PacoteServicos.class))).thenReturn(pacoteServicos);
 
-        // Ação
         PacoteServicos createdPacoteServicos = pacoteServicosService.createPacoteServicos(pacoteServicos);
 
-        // Verificação
         assertNotNull(createdPacoteServicos);
         assertEquals("Pacote 1", createdPacoteServicos.getNome());
         verify(servicoRepository).findById(1L);
@@ -69,7 +64,6 @@ public class PacoteServicosServiceTest {
 
     @Test
     public void getPacoteServicosById_ExistingId_ReturnsPacoteServicos() {
-        // Preparação
         PacoteServicos pacoteServicos = new PacoteServicos();
         pacoteServicos.setId(1L);
 

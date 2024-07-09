@@ -27,14 +27,12 @@ public class PacoteServicosIntegrationTest {
 
     @BeforeEach
     public void setup() {
-        // Initialize your in-memory database here if necessary
-
         // Create and save a Servico entity
         Servico servico = new Servico();
         servico.setId(1L); // Set the ID expected by the test
         servico.setDescricao("Serviço Teste");
         servico.setPreco(100.0);
-        // Save the servico to the in-memory database
+        // Save the servico database
         servicoRepository.save(servico);
     }
 

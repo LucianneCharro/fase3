@@ -57,7 +57,6 @@ public class ServicoServiceTest {
         assertThrows(ResourceNotFoundException.class, () -> servicoService.getServicoById(1L));
     }
 
-    // Implemente os testes para createServico, updateServico e deleteServico da mesma forma
     @Test
     public void testCreateServico() {
         Servico servico = new Servico(1L, "Corte de Cabelo", 50.0);

@@ -23,7 +23,6 @@ public class ClienteSteps {
 
     @Given("que eu quero criar um novo cliente com os dados necessários")
     public void que_eu_quero_criar_um_novo_cliente_com_os_dados_necessarios() {
-        // Este passo pode ser usado para preparar o ambiente, se necessário.
     }
 
     @When("eu faço uma requisição POST para {string} com os dados do cliente")

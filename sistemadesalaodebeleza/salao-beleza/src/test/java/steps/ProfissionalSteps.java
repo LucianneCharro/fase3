@@ -22,7 +22,6 @@ public class ProfissionalSteps {
 
     @Given("que eu quero ver todos os profissionais cadastrados")
     public void que_eu_quero_ver_todos_os_profissionais_cadastrados() {
-        // Este passo pode ser usado para preparar o ambiente, se necessário.
     }
 
     @When("eu faço uma requisição GET para {string}")
@@ -38,7 +37,6 @@ public class ProfissionalSteps {
 
     @Given("que eu quero obter informações de um profissional específico pelo seu ID")
     public void que_eu_quero_obter_informacoes_de_um_profissional_especifico_pelo_seu_id() {
-        // Este passo pode ser usado para preparar o ambiente, se necessário.
     }
 
     @Then("a resposta deve ser os detalhes do profissional correspondente")
@@ -49,7 +47,6 @@ public class ProfissionalSteps {
 
     @Given("que eu quero criar um novo profissional com os dados necessários")
     public void que_eu_quero_criar_um_novo_profissional_com_os_dados_necessarios() {
-        // Este passo pode ser usado para preparar o ambiente, se necessário.
     }
 
     @Then("o profissional deve ser criado e a resposta deve ser os detalhes do profissional criado")
@@ -60,7 +57,6 @@ public class ProfissionalSteps {
 
     @Given("que eu quero atualizar os dados de um profissional existente pelo seu ID")
     public void que_eu_quero_atualizar_os_dados_de_um_profissional_existente_pelo_seu_id() {
-        // Este passo pode ser usado para preparar o ambiente, se necessário.
     }
 
     @Then("os dados do profissional devem ser atualizados e a resposta deve ser os detalhes do profissional atualizado")

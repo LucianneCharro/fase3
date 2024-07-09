@@ -20,7 +20,6 @@ public class ServicoSteps {
 
     @Given("the system has services")
     public void the_system_has_services() {
-        // Preparar o ambiente, se necessário
     }
 
     @When("the client calls {string}")
