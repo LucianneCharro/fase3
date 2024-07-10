@@ -15,7 +15,7 @@
 		<version>3.0.6</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.unicap</groupId>
+	<groupId>com.fiap</groupId>
 	<artifactId>salao-beleza</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>salao-beleza</name>
@@ -138,6 +138,7 @@
 				<artifactId>spring-boot-starter-test</artifactId>
 				<scope>test</scope>
 			</dependency>
+
 	</dependencies>
 
 	<build>

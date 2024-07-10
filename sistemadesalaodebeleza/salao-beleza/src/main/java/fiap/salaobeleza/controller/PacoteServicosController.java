@@ -2,11 +2,12 @@ package fiap.salaobeleza.controller;
 
 import fiap.salaobeleza.model.PacoteServicos;
 import fiap.salaobeleza.service.PacoteServicosService;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-//import javax.validation.Valid;
+import org.springframework.validation.BindingResult;
 import java.util.List;
 
 @RestController
@@ -30,8 +31,12 @@ public class PacoteServicosController {
     }
 
     @PostMapping
-    public PacoteServicos createPacoteServicos(@Validated @RequestBody PacoteServicos pacoteServicos) {
-        return pacoteServicosService.createPacoteServicos(pacoteServicos);
+    public ResponseEntity<?> createPacoteServicos(@Validated @RequestBody PacoteServicos pacoteServicos, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return ResponseEntity.badRequest().body(bindingResult.getAllErrors());
+        }
+        PacoteServicos createdPacoteServicos = pacoteServicosService.createPacoteServicos(pacoteServicos);
+        return new ResponseEntity<>(createdPacoteServicos, HttpStatus.CREATED);
     }
 
     @PutMapping("/{id}")
