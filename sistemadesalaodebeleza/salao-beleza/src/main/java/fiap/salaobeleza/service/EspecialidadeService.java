@@ -1,6 +1,6 @@
 package fiap.salaobeleza.service;
 
-import fiap.salaobeleza.model.Servico;
+import fiap.salaobeleza.model.Especialidades;
 import fiap.salaobeleza.exception.ResourceNotFoundException;
 import fiap.salaobeleza.repository.ServicoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,12 +14,12 @@ public class ServicoService {
     @Autowired
     private ServicoRepository servicoRepository;
 
-    public List<Servico> getAllServicos() {
+    public List<Especialidades> getAllServicos() {
         return servicoRepository.findAll();
     }
 
-    public Servico getServicoById(Long id) {
-        Optional<Servico> servico = servicoRepository.findById(id);
+    public Especialidades getServicoById(Long id) {
+        Optional<Especialidades> servico = servicoRepository.findById(id);
         if (servico.isPresent()) {
             return servico.get();
         } else {
@@ -27,19 +27,19 @@ public class ServicoService {
         }
     }
 
-    public Servico createServico(Servico servico) {
+    public Especialidades createServico(Especialidades servico) {
         return servicoRepository.save(servico);
     }
 
-    public Servico updateServico(Long id, Servico servicoDetails) {
-        Servico servico = getServicoById(id);
+    public Especialidades updateServico(Long id, Especialidades servicoDetails) {
+        Especialidades servico = getServicoById(id);
         servico.setDescricao(servicoDetails.getDescricao());
         servico.setPreco(servicoDetails.getPreco());
         return servicoRepository.save(servico);
     }
 
     public void deleteServico(Long id) {
-        Servico servico = getServicoById(id);
+        Especialidades servico = getServicoById(id);
         servicoRepository.delete(servico);
     }
 }

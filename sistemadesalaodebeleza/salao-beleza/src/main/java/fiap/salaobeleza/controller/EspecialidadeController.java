@@ -1,6 +1,6 @@
 package fiap.salaobeleza.controller;
 
-import fiap.salaobeleza.model.Servico;
+import fiap.salaobeleza.model.Especialidades;
 import fiap.salaobeleza.service.ServicoService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -20,23 +20,23 @@ public class ServicoController {
     }
 
     @GetMapping
-    public List<Servico> getAllServicos() {
+    public List<Especialidades> getAllServicos() {
         return servicoService.getAllServicos();
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Servico> getServicoById(@PathVariable Long id) {
-        Servico servico = servicoService.getServicoById(id);
+    public ResponseEntity<Especialidades> getServicoById(@PathVariable Long id) {
+        Especialidades servico = servicoService.getServicoById(id);
         return new ResponseEntity<>(servico, HttpStatus.OK);
     }
 
     @PostMapping
-    public Servico createServico(@RequestBody Servico servico) {
+    public Especialidades createServico(@RequestBody Especialidades servico) {
         return servicoService.createServico(servico);
     }
 
     @PutMapping("/{id}")
-    public Servico updateServico(@PathVariable Long id, @RequestBody Servico servicoDetails) {
+    public Especialidades updateServico(@PathVariable Long id, @RequestBody Especialidades servicoDetails) {
         return servicoService.updateServico(id, servicoDetails);
     }
 
