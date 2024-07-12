@@ -23,7 +23,7 @@ public class Estabelecimento {
     private String endereco;
 
     @ManyToMany(fetch = FetchType.LAZY)
-    private Set<Especialidades> servicosOferecidos;
+    private Set<Especialidades> especialidadeOferecidos;
 
     @ManyToMany(fetch = FetchType.LAZY)
     private Set<Profissional> profissionaisDisponiveis;

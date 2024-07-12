@@ -47,10 +47,10 @@ public class EstabelecimentoController {
 
         // Carregar e associar serviços oferecidos
         List<Integer> servicosOferecidosIds = (List<Integer>) payload.get("servicosOferecidosIds");
-        Set<Especialidades> servicosOferecidos = servicosOferecidosIds.stream()
+        Set<Especialidades> especialidadesOferecidas = servicosOferecidosIds.stream()
                 .map(id -> servicoRepository.findById(id.longValue()).orElse(null))
                 .collect(Collectors.toSet());
-        estabelecimento.setServicosOferecidos(servicosOferecidos);
+        estabelecimento.setEspecialidadeOferecidos(especialidadesOferecidas);
 
         // Carregar e associar profissionais disponíveis
         List<Integer> profissionaisDisponiveisIds = (List<Integer>) payload.get("profissionaisDisponiveisIds");
@@ -77,5 +77,14 @@ public class EstabelecimentoController {
         } else {
             return ResponseEntity.notFound().build();
         }
+    }
+
+    @GetMapping("/buscar")
+    public ResponseEntity<List<Estabelecimento>> buscarEstabelecimentos(
+            @RequestParam(required = false) String nome,
+            @RequestParam(required = false) String endereco,
+            @RequestParam(required = false) String horarioFuncionamento) {
+        List<Estabelecimento> estabelecimentos = estabelecimentoService.buscarEstabelecimentos(nome, endereco, horarioFuncionamento);
+        return ResponseEntity.ok(estabelecimentos);
     }
 }

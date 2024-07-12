@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
@@ -24,6 +25,13 @@ public class AgendamentoController {
         this.agendamentoService = agendamentoService;
     }
 
+    /**
+     * Calcula a soma de dois números.
+     * @param agendamento O primeiro número.
+     * @return A soma dos dois números.
+     **/
+
+
     @PostMapping
     public ResponseEntity<Agendamento> createAgendamento(@RequestBody Agendamento agendamento) {
         // Verifica a disponibilidade do profissional
@@ -32,7 +40,7 @@ public class AgendamentoController {
             throw new IllegalStateException("Profissional não está disponível no horário solicitado.");
         }
         Disponibilidade createdDisponibilidade = disponibilidadeService.adicionarDisponibilidade(agendamento.getProfissional().getId(), agendamento.getDataHora(), agendamento.getDataHora().plusHours(1));
-         Agendamento createdAgendamento = agendamentoService.createAgendamento(agendamento);
+        Agendamento createdAgendamento = agendamentoService.createAgendamento(agendamento);
         return ResponseEntity.ok(createdAgendamento);
     }
 
@@ -52,7 +60,13 @@ public class AgendamentoController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteAgendamento(@PathVariable Long id) {
+    public ResponseEntity<Void> cancelarAgendamento(@PathVariable Long id) {
+        disponibilidadeService.removerDisponibilidade(id);
         return agendamentoService.deleteAgendamento(id);
+    }
+
+    public ResponseEntity<Agendamento> reagendarAgendamento(Long id, LocalDateTime novaDataHora) {
+        return agendamentoService.reagendarAgendamento(id, novaDataHora);
+
     }
 }

@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -107,11 +108,31 @@ public class AgendamentoService {
             return ResponseEntity.notFound().build();
         }
     }
-
+    public ResponseEntity<Agendamento> reagendarAgendamento(Long id, LocalDateTime novaDataHora) {
+        Optional<Agendamento> agendamentoOptional = agendamentoRepository.findById(id);
+        if (agendamentoOptional.isPresent()) {
+            Agendamento agendamento = agendamentoOptional.get();
+            agendamento.setDataHora(novaDataHora);
+            // Notificar cliente e profissional sobre o reagendamento
+   //       notificationService.sendNotification(agendamento.getCliente().getEmail(), "Reagendamento de Agendamento", "Seu agendamento foi reagendado para " + novaDataHora.toString());
+   //        notificationService.sendNotification(agendamento.getProfissional().getEmail(), "Reagendamento de Agendamento", "Um agendamento foi reagendado para " + novaDataHora.toString());
+            // Salvar o agendamento atualizado
+            agendamentoRepository.save(agendamento);
+            return ResponseEntity.ok(agendamento);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
     public ResponseEntity<Void> deleteAgendamento(Long id) {
-        Optional<Agendamento> agendamento = agendamentoRepository.findById(id);
-        if (agendamento.isPresent()) {
-            agendamentoRepository.delete(agendamento.get());
+        Optional<Agendamento> agendamentoOptional = agendamentoRepository.findById(id);
+        if (agendamentoOptional.isPresent()) {
+            Agendamento agendamento = agendamentoOptional.get();
+            // Notificar cliente e profissional sobre o cancelamento
+   //         notificationService.sendNotification(agendamento.getCliente().getEmail(), "Cancelamento de Agendamento", "Seu agendamento foi cancelado.");
+   //         notificationService.sendNotification(agendamento.getProfissional().getEmail(), "Cancelamento de Agendamento", "Um agendamento foi cancelado.");
+            // Remover o agendamento
+            agendamentoRepository.delete(agendamento);
+
             return ResponseEntity.ok().build();
         } else {
             return ResponseEntity.notFound().build();

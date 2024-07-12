@@ -2,9 +2,12 @@ package fiap.salaobeleza.service;
 
 import fiap.salaobeleza.model.Estabelecimento;
 import fiap.salaobeleza.repository.EstabelecimentoRepository;
+import jakarta.persistence.criteria.Predicate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -31,10 +34,7 @@ public class EstabelecimentoService {
                 .map(estabelecimento -> {
                     estabelecimento.setNome(estabelecimentoAtualizado.getNome());
                     estabelecimento.setEndereco(estabelecimentoAtualizado.getEndereco());
-                    estabelecimento.setServicosOferecidos(estabelecimentoAtualizado.getServicosOferecidos());
-                    estabelecimento.setProfissionaisDisponiveis(estabelecimentoAtualizado.getProfissionaisDisponiveis());
                     estabelecimento.setHorarioFuncionamento(estabelecimentoAtualizado.getHorarioFuncionamento());
-                    estabelecimento.setFotos(estabelecimentoAtualizado.getFotos());
                     return estabelecimentoRepository.save(estabelecimento);
                 });
     }
@@ -45,5 +45,15 @@ public class EstabelecimentoService {
                     estabelecimentoRepository.delete(estabelecimento);
                     return true;
                 }).orElse(false);
+    }
+    public List<Estabelecimento> buscarEstabelecimentos(String nome, String endereco, String horarioFuncionamento) {
+        return estabelecimentoRepository.findAll((Specification<Estabelecimento>) (root, query, criteriaBuilder) -> {
+            List<Predicate> predicates = new ArrayList<>();
+            if (nome != null) {
+                predicates.add(criteriaBuilder.like(root.get("nome"), "%" + nome + "%"));
+            }
+            // Avaliar se vamos incluir mais condições conforme necessário
+            return criteriaBuilder.and(predicates.toArray(new Predicate[0]));
+        });
     }
 }
