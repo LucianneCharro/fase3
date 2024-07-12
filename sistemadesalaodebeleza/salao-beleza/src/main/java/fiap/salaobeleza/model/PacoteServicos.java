@@ -20,27 +20,27 @@ public class PacoteServicos {
 
     @ManyToMany(fetch = FetchType.EAGER)
     @NotEmpty
-    private Set<Servico> servicos;
+    private Set<Especialidades> especialidades;
     
     @Transient
     private Double preco;
     
     public Double getPreco() {
-        if (this.servicos != null && !this.servicos.isEmpty()) {
-            double totalPreco = servicos.stream()
-                .mapToDouble(Servico::getPreco)
+        if (this.especialidades != null && !this.especialidades.isEmpty()) {
+            double totalPreco = especialidades.stream()
+                .mapToDouble(Especialidades::getPreco)
                 .sum();
             this.preco = totalPreco * 0.9;
         }
         return this.preco;
     }
 
-	public Set<Servico> getServicos() {
-		return servicos;
+	public Set<Especialidades> getEspecialidades() {
+		return especialidades;
 	}
 
-	public void setServicos(Set<Servico> servicos) {
-		this.servicos = servicos;
+	public void setEspecialidades(Set<Especialidades> especialidades) {
+		this.especialidades = especialidades;
 	}
     
     

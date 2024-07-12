@@ -1,9 +1,9 @@
 package fiap.salaobeleza.service;
 
 import fiap.salaobeleza.model.PacoteServicos;
-import fiap.salaobeleza.model.Servico;
+import fiap.salaobeleza.model.Especialidades;
 import fiap.salaobeleza.repository.PacoteServicosRepository;
-import fiap.salaobeleza.repository.ServicoRepository;
+import fiap.salaobeleza.repository.EspecialidadeRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -30,11 +30,11 @@ public class PacoteServicosServiceTest {
     private PacoteServicosRepository pacoteServicosRepository;
 
     @Mock
-    private ServicoRepository servicoRepository;
+    private EspecialidadeRepository servicoRepository;
     @BeforeEach
     public void setup() {
         MockitoAnnotations.openMocks(this);
-        Servico servicoMock = new Servico();
+        Especialidades servicoMock = new Especialidades();
         servicoMock.setId(1L);
         lenient().when(servicoRepository.findById(anyLong())).thenReturn(Optional.of(servicoMock));
         pacoteServicosService = new PacoteServicosService(pacoteServicosRepository, servicoRepository);
@@ -45,11 +45,11 @@ public class PacoteServicosServiceTest {
         pacoteServicos.setId(1L);
         pacoteServicos.setPreco(10.00);
         pacoteServicos.setNome("Pacote 1");
-        HashSet<Servico> servicos = new HashSet<>();
-        Servico servico = new Servico();
+        HashSet<Especialidades> servicos = new HashSet<>();
+        Especialidades servico = new Especialidades();
         servico.setId(1L);
         servicos.add(servico);
-        pacoteServicos.setServicos(servicos);
+        pacoteServicos.setEspecialidades(servicos);
 
         when(servicoRepository.findById(1L)).thenReturn(Optional.of(servico));
         when(pacoteServicosRepository.save(any(PacoteServicos.class))).thenReturn(pacoteServicos);

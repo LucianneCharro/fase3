@@ -2,9 +2,9 @@ package steps;
 
 import fiap.salaobeleza.model.Agendamento;
 import fiap.salaobeleza.model.Cliente;
-import fiap.salaobeleza.model.Servico;
+import fiap.salaobeleza.model.Especialidades;
 import fiap.salaobeleza.repository.ClienteRepository;
-import fiap.salaobeleza.repository.ServicoRepository;
+import fiap.salaobeleza.repository.EspecialidadeRepository;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -31,10 +31,10 @@ public class AgendamentoSteps {
     private ClienteRepository clienteRepository;
 
     @Autowired
-    private ServicoRepository servicoRepository;
+    private EspecialidadeRepository especialidadeRepository;
 
-    private Servico buscarServicoPorId(Long id) {
-        return servicoRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Serviço não encontrado"));
+    private Especialidades buscarEspecialidadePorId(Long id) {
+        return especialidadeRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Serviço não encontrado"));
     }
 
     private Cliente buscarClientePorId(Long id) {
@@ -49,10 +49,10 @@ public class AgendamentoSteps {
     public void eu_faco_uma_requisicao_POST_para_com_os_dados_do_agendamento(String url) {
         Agendamento agendamento = new Agendamento();
 
-        Servico servico = buscarServicoPorId(1L);
+        Especialidades especialidade = buscarEspecialidadePorId(1L);
         Cliente cliente = buscarClientePorId(1L);
 
-        agendamento.setServico(servico);
+        agendamento.setEspecialidade(especialidade);
         agendamento.setDataHora(LocalDateTime.parse("2023-10-05T14:00:00"));
         agendamento.setCliente(cliente);
 

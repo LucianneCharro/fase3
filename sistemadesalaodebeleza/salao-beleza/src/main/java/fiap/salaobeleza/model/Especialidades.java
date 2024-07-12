@@ -9,7 +9,7 @@ import jakarta.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Servico {
+public class Especialidades {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -21,7 +21,7 @@ public class Servico {
     @Positive
     private double preco;
 
-    public Servico(String manicure, double v) {
+    public Especialidades(String manicure, double v) {
     }
 }
 

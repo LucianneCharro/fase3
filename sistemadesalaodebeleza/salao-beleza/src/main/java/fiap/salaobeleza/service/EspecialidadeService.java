@@ -2,44 +2,44 @@ package fiap.salaobeleza.service;
 
 import fiap.salaobeleza.model.Especialidades;
 import fiap.salaobeleza.exception.ResourceNotFoundException;
-import fiap.salaobeleza.repository.ServicoRepository;
+import fiap.salaobeleza.repository.EspecialidadeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
 @Service
-public class ServicoService {
+public class EspecialidadeService {
 
     @Autowired
-    private ServicoRepository servicoRepository;
+    private EspecialidadeRepository especialidadeRepository;
 
-    public List<Especialidades> getAllServicos() {
-        return servicoRepository.findAll();
+    public List<Especialidades> getAllEspecialidade() {
+        return especialidadeRepository.findAll();
     }
 
-    public Especialidades getServicoById(Long id) {
-        Optional<Especialidades> servico = servicoRepository.findById(id);
-        if (servico.isPresent()) {
-            return servico.get();
+    public Especialidades getEspecialidadeById(Long id) {
+        Optional<Especialidades> especialidade = especialidadeRepository.findById(id);
+        if (especialidade.isPresent()) {
+            return especialidade.get();
         } else {
         	throw new ResourceNotFoundException("Servico com id " + id + " não encontrado.");
         }
     }
 
-    public Especialidades createServico(Especialidades servico) {
-        return servicoRepository.save(servico);
+    public Especialidades createEspecialidade(Especialidades servico) {
+        return especialidadeRepository.save(servico);
     }
 
-    public Especialidades updateServico(Long id, Especialidades servicoDetails) {
-        Especialidades servico = getServicoById(id);
-        servico.setDescricao(servicoDetails.getDescricao());
-        servico.setPreco(servicoDetails.getPreco());
-        return servicoRepository.save(servico);
+    public Especialidades updateEspecialidade(Long id, Especialidades especialidadeDetails) {
+        Especialidades especialidade = getEspecialidadeById(id);
+        especialidade.setDescricao(especialidadeDetails.getDescricao());
+        especialidade.setPreco(especialidadeDetails.getPreco());
+        return especialidadeRepository.save(especialidade);
     }
 
-    public void deleteServico(Long id) {
-        Especialidades servico = getServicoById(id);
-        servicoRepository.delete(servico);
+    public void deleteEspecialidade(Long id) {
+        Especialidades especialidade = getEspecialidadeById(id);
+        especialidadeRepository.delete(especialidade);
     }
 }

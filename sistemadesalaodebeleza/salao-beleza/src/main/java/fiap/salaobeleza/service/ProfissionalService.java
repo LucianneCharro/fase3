@@ -2,9 +2,9 @@ package fiap.salaobeleza.service;
 
 import fiap.salaobeleza.exception.ResourceNotFoundException;
 import fiap.salaobeleza.model.Profissional;
-import fiap.salaobeleza.model.Servico;
+import fiap.salaobeleza.model.Especialidades;
 import fiap.salaobeleza.repository.ProfissionalRepository;
-import fiap.salaobeleza.repository.ServicoRepository;
+import fiap.salaobeleza.repository.EspecialidadeRepository;
 import org.springframework.stereotype.Service;
 import java.util.HashSet;
 import java.util.List;
@@ -14,11 +14,11 @@ import java.util.Set;
 public class ProfissionalService {
 
     private final ProfissionalRepository profissionalRepository;
-    private final ServicoRepository servicoRepository;
+    private final EspecialidadeRepository especialidadeRepository;
 
-    public ProfissionalService(ProfissionalRepository profissionalRepository, ServicoRepository servicoRepository) {
+    public ProfissionalService(ProfissionalRepository profissionalRepository, EspecialidadeRepository especialidadeRepository) {
         this.profissionalRepository = profissionalRepository;
-        this.servicoRepository = servicoRepository;
+        this.especialidadeRepository = especialidadeRepository;
     }
 
     public List<Profissional> getAllProfissional() {
@@ -31,13 +31,13 @@ public class ProfissionalService {
     }
 
     public Profissional createProfissional(Profissional profissional) {
-        Set<Servico> servicosHabilitados = new HashSet<>();
-        for (Servico servico : profissional.getServicosHabilitados()) {
-            Servico servicoCompleto = servicoRepository.findById(servico.getId())
-                .orElseThrow(() -> new ResourceNotFoundException("Servico com id " + servico.getId() + " não encontrado."));
-            servicosHabilitados.add(servicoCompleto);
+        Set<Especialidades> especialidades = new HashSet<>();
+        for (Especialidades especialidade: profissional.getEspecialidades()) {
+            Especialidades especialidadeCompleto = especialidadeRepository.findById(especialidade.getId())
+                .orElseThrow(() -> new ResourceNotFoundException("Especialidade com id " + especialidade.getId() + " não encontrado."));
+            especialidades.add(especialidadeCompleto);
         }
-        profissional.setServicosHabilitados(servicosHabilitados);
+        profissional.setEspecialidades(especialidades);
         return profissionalRepository.save(profissional);
     }
 
@@ -45,13 +45,13 @@ public class ProfissionalService {
         Profissional profissional = getProfissionalById(id);
         profissional.setNome(profissionalDetails.getNome());
 
-        Set<Servico> servicosHabilitados = new HashSet<>();
-        for (Servico servico : profissionalDetails.getServicosHabilitados()) {
-            Servico servicoCompleto = servicoRepository.findById(servico.getId())
+        Set<Especialidades> especialidades = new HashSet<>();
+        for (Especialidades servico : profissionalDetails.getEspecialidades()) {
+            Especialidades servicoCompleto = especialidadeRepository.findById(servico.getId())
                 .orElseThrow(() -> new ResourceNotFoundException("Servico com id " + servico.getId() + " não encontrado."));
-            servicosHabilitados.add(servicoCompleto);
+            especialidades.add(servicoCompleto);
         }
-        profissional.setServicosHabilitados(servicosHabilitados);
+        profissional.setEspecialidades(especialidades);
         
         return profissionalRepository.save(profissional);
     }

@@ -19,9 +19,9 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import fiap.salaobeleza.model.Profissional;
-import fiap.salaobeleza.model.Servico;
+import fiap.salaobeleza.model.Especialidades;
 import fiap.salaobeleza.repository.ProfissionalRepository;
-import fiap.salaobeleza.repository.ServicoRepository;
+import fiap.salaobeleza.repository.EspecialidadeRepository;
 
 @ExtendWith(MockitoExtension.class)
 @SpringBootTest
@@ -34,13 +34,13 @@ public class ProfissionalServiceTest {
     private ProfissionalRepository profissionalRepository;
 
     @Mock
-    private ServicoRepository servicoRepository;
+    private EspecialidadeRepository servicoRepository;
 
     @BeforeEach
     public void setup() {
         MockitoAnnotations.openMocks(this);
 
-        Servico servicoMock = new Servico();
+        Especialidades servicoMock = new Especialidades();
         servicoMock.setId(1L);
         lenient().when(servicoRepository.findById(1L)).thenReturn(Optional.of(servicoMock));
 
@@ -50,9 +50,9 @@ public class ProfissionalServiceTest {
     @Test
     public void testGetAllProfissional() {
         Profissional profissional = new Profissional();
-        Servico servico = new Servico();
+        Especialidades servico = new Especialidades();
         servico.setId(1L);
-        profissional.setServicosHabilitados(new HashSet<>(Arrays.asList(servico)));
+        profissional.setEspecialidades(new HashSet<>(Arrays.asList(servico)));
 
         when(servicoRepository.findById(1L)).thenReturn(Optional.of(servico));
 
@@ -80,9 +80,9 @@ public class ProfissionalServiceTest {
     @Test
     public void testCreateProfissional() {
         Profissional profissional = new Profissional();
-        Servico servico = new Servico();
+        Especialidades servico = new Especialidades();
         servico.setId(1L);
-        profissional.setServicosHabilitados(new HashSet<>(Arrays.asList(servico)));
+        profissional.setEspecialidades(new HashSet<>(Arrays.asList(servico)));
 
         when(servicoRepository.findById(1L)).thenReturn(Optional.of(servico));
         when(profissionalRepository.save(profissional)).thenReturn(profissional);

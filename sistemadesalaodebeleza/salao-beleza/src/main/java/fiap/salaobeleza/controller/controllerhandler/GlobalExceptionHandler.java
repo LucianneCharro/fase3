@@ -1,4 +1,4 @@
-package fiap.salaobeleza.handler;
+package fiap.salaobeleza.controller.controllerhandler;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -10,13 +10,14 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(ResourceNotFoundException.class)
     public ResponseEntity<?> resourceNotFoundExceptionHandler(ResourceNotFoundException ex) {
-        // Cria um objeto de erro (você pode querer criar uma classe para isso)
-        // que contém a mensagem de erro e outros detalhes que você deseja retornar.
         ErrorDetails errorDetails = new ErrorDetails(HttpStatus.NOT_FOUND.value(), ex.getMessage(), System.currentTimeMillis());
         return new ResponseEntity<>(errorDetails, HttpStatus.NOT_FOUND);
     }
-
-    // Classe interna para detalhes do erro
+    @ExceptionHandler(IllegalStateException.class)
+    public ResponseEntity<?> handleIllegalStateException(IllegalStateException ex) {
+        ErrorDetails errorDetails = new ErrorDetails(HttpStatus.BAD_REQUEST.value(), ex.getMessage(), System.currentTimeMillis());
+        return new ResponseEntity<>(errorDetails, HttpStatus.BAD_REQUEST);
+    }
     private static class ErrorDetails {
         private int statusCode;
         private String message;
@@ -28,7 +29,6 @@ public class GlobalExceptionHandler {
             this.timestamp = timestamp;
         }
 
-        // Getters
         public int getStatusCode() {
             return statusCode;
         }

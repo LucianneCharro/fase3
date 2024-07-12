@@ -1,11 +1,10 @@
 package fiap.salaobeleza.controller;
 
 import fiap.salaobeleza.model.Estabelecimento;
-import fiap.salaobeleza.model.PacoteServicos;
 import fiap.salaobeleza.model.Profissional;
-import fiap.salaobeleza.model.Servico;
+import fiap.salaobeleza.model.Especialidades;
 import fiap.salaobeleza.repository.ProfissionalRepository;
-import fiap.salaobeleza.repository.ServicoRepository;
+import fiap.salaobeleza.repository.EspecialidadeRepository;
 import fiap.salaobeleza.service.EstabelecimentoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -23,7 +22,7 @@ public class EstabelecimentoController {
     @Autowired
     private EstabelecimentoService estabelecimentoService;
     @Autowired
-    private ServicoRepository servicoRepository;
+    private EspecialidadeRepository servicoRepository;
     @Autowired
     private ProfissionalRepository profissionalRepository;
     @GetMapping
@@ -38,11 +37,6 @@ public class EstabelecimentoController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
-//    @PostMapping
-//    public Estabelecimento adicionar(@RequestBody Estabelecimento estabelecimento) {
-//        return estabelecimentoService.salvar(estabelecimento);
-//    }
-
     @PostMapping
     public Estabelecimento adicionar(@RequestBody Map<String, Object> payload) {
         Estabelecimento estabelecimento = new Estabelecimento();
@@ -53,7 +47,7 @@ public class EstabelecimentoController {
 
         // Carregar e associar serviços oferecidos
         List<Integer> servicosOferecidosIds = (List<Integer>) payload.get("servicosOferecidosIds");
-        Set<Servico> servicosOferecidos = servicosOferecidosIds.stream()
+        Set<Especialidades> servicosOferecidos = servicosOferecidosIds.stream()
                 .map(id -> servicoRepository.findById(id.longValue()).orElse(null))
                 .collect(Collectors.toSet());
         estabelecimento.setServicosOferecidos(servicosOferecidos);

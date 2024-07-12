@@ -18,7 +18,7 @@ public class EspecialidadeDTO {
     @Positive
     private double preco;
 
-    public ServicoDTO(Long id, String descricao, double preco) {
+    public EspecialidadeDTO(Long id, String descricao, double preco) {
         this.id = id;
         this.descricao = descricao;
         this.preco = preco;

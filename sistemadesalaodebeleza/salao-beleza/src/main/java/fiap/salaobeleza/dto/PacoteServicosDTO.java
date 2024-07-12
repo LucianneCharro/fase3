@@ -1,6 +1,6 @@
 package fiap.salaobeleza.dto;
 
-import fiap.salaobeleza.model.Servico;
+import fiap.salaobeleza.model.Especialidades;
 import jakarta.validation.constraints.NotEmpty;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,11 +19,11 @@ public class PacoteServicosDTO {
     private String nome;
 
     @NotEmpty
-    private Set<Servico> servicos;
+    private Set<Especialidades> especialidades;
 
-    public PacoteServicosDTO(Long id, String nome, Set<Servico> servicos) {
+    public PacoteServicosDTO(Long id, String nome, Set<Especialidades> especialidades) {
         this.id = id;
         this.nome = nome;
-        this.servicos = servicos;
+        this.especialidades = especialidades;
     }
 }

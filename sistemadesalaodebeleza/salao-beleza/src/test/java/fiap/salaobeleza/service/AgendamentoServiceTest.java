@@ -3,11 +3,11 @@ package fiap.salaobeleza.service;
 import fiap.salaobeleza.model.Agendamento;
 import fiap.salaobeleza.model.Cliente;
 import fiap.salaobeleza.model.Profissional;
-import fiap.salaobeleza.model.Servico;
+import fiap.salaobeleza.model.Especialidades;
 import fiap.salaobeleza.repository.AgendamentoRepository;
 import fiap.salaobeleza.repository.ClienteRepository;
 import fiap.salaobeleza.repository.ProfissionalRepository;
-import fiap.salaobeleza.repository.ServicoRepository;
+import fiap.salaobeleza.repository.EspecialidadeRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
@@ -31,7 +31,7 @@ public class AgendamentoServiceTest {
     @Mock
     private ProfissionalRepository profissionalRepository;
     @Mock
-    private ServicoRepository servicoRepository;
+    private EspecialidadeRepository servicoRepository;
 
     @BeforeEach
     public void setup() {
@@ -48,7 +48,7 @@ public class AgendamentoServiceTest {
         profissionalMock.setNome("Maria");
         when(profissionalRepository.findById(1L)).thenReturn(Optional.of(profissionalMock));
 
-        Servico servicoMock = new Servico();
+        Especialidades servicoMock = new Especialidades();
         servicoMock.setId(1L);
         when(servicoRepository.findById(1L)).thenReturn(Optional.of(servicoMock));
     }
@@ -62,14 +62,14 @@ public class AgendamentoServiceTest {
         Profissional profissional = new Profissional();
         profissional.setId(1L);
 
-        Servico servico = new Servico();
+        Especialidades servico = new Especialidades();
         servico.setId(1L);
 
         Agendamento agendamento = new Agendamento();
         agendamento.setId(1L);
         agendamento.setCliente(cliente);
         agendamento.setProfissional(profissional);
-        agendamento.setServico(servico);
+        agendamento.setEspecialidade(servico);
 
         when(agendamentoRepository.save(any(Agendamento.class))).thenReturn(agendamento);
 

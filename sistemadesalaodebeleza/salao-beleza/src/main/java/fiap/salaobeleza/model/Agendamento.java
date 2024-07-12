@@ -21,13 +21,11 @@ public class Agendamento {
     private Profissional profissional;
 
     @ManyToOne
-    private Servico servico;
+    private Especialidades especialidade;
 
     @ManyToOne
     private PacoteServicos pacoteServicos;
 
     private LocalDateTime dataHora;
-
-	
 
 }

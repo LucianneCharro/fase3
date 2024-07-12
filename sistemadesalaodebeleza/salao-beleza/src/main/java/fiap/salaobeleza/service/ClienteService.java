@@ -19,6 +19,11 @@ public class ClienteService {
     }
 
     public Cliente createCliente(Cliente cliente) {
+        // Verifica se já existe um cliente com o mesmo e-mail
+        boolean clienteExiste = clienteRepository.findByEmail(cliente.getEmail()).isPresent();
+        if (clienteExiste) {
+            throw new IllegalStateException("Cliente já existe");
+        }
         return clienteRepository.save(cliente);
     }
 

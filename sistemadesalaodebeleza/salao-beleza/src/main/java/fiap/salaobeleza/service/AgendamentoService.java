@@ -3,10 +3,10 @@ package fiap.salaobeleza.service;
 import fiap.salaobeleza.model.Cliente;
 import fiap.salaobeleza.model.Profissional;
 import fiap.salaobeleza.model.PacoteServicos;
-import fiap.salaobeleza.model.Servico;
+import fiap.salaobeleza.model.Especialidades;
 import fiap.salaobeleza.model.Agendamento;
 import fiap.salaobeleza.repository.AgendamentoRepository;
-import fiap.salaobeleza.repository.ServicoRepository;
+import fiap.salaobeleza.repository.EspecialidadeRepository;
 import fiap.salaobeleza.repository.PacoteServicosRepository;
 import fiap.salaobeleza.repository.ClienteRepository;
 import fiap.salaobeleza.repository.ProfissionalRepository;
@@ -21,20 +21,24 @@ import java.util.Optional;
 @Service
 public class AgendamentoService {
 
+    @Autowired
+    private NotificationService notificationService;
+
     private final AgendamentoRepository agendamentoRepository;
-    private final ServicoRepository servicoRepository;
+    private final EspecialidadeRepository especialidadeRepository;
     private final PacoteServicosRepository pacoteServicosRepository;
     private final ClienteRepository clienteRepository;
     private final ProfissionalRepository profissionalRepository;
 
+
     @Autowired
     public AgendamentoService(AgendamentoRepository agendamentoRepository,
-                              ServicoRepository servicoRepository,
+                              EspecialidadeRepository especialidadeRepository,
                               PacoteServicosRepository pacoteServicosRepository,
                               ClienteRepository clienteRepository,
                               ProfissionalRepository profissionalRepository) {
         this.agendamentoRepository = agendamentoRepository;
-        this.servicoRepository = servicoRepository;
+        this.especialidadeRepository = especialidadeRepository;
         this.pacoteServicosRepository = pacoteServicosRepository;
         this.clienteRepository = clienteRepository;
         this.profissionalRepository = profissionalRepository;
@@ -46,7 +50,7 @@ public class AgendamentoService {
             throw new IllegalArgumentException("Cliente e Profissional devem ser fornecidos.");
         }
 
-        boolean hasServico = agendamento.getServico() != null;
+        boolean hasServico = agendamento.getEspecialidade() != null;
         boolean hasPacoteServicos = agendamento.getPacoteServicos() != null;
         if ((hasServico && hasPacoteServicos) || (!hasServico && !hasPacoteServicos)) {
             throw new IllegalArgumentException("Deve ser fornecido apenas um dos seguintes: Serviço ou Pacote de Serviços.");
@@ -61,17 +65,17 @@ public class AgendamentoService {
         agendamento.setProfissional(profissional);
 
         if (hasServico) {
-            Servico servico = servicoRepository.findById(agendamento.getServico().getId())
+            Especialidades especialidades = especialidadeRepository.findById(agendamento.getEspecialidade().getId())
                     .orElseThrow(() -> new ResourceNotFoundException("Serviço não encontrado"));
-            agendamento.setServico(servico);
+            agendamento.setEspecialidade(especialidades);
             agendamento.setPacoteServicos(null); 
         } else {
             PacoteServicos pacoteServicos = pacoteServicosRepository.findById(agendamento.getPacoteServicos().getId())
                     .orElseThrow(() -> new ResourceNotFoundException("Pacote de Serviços não encontrado"));
             agendamento.setPacoteServicos(pacoteServicos);
-            agendamento.setServico(null); 
+            agendamento.setEspecialidade(null);
         }
-
+//        notificationService.sendNotification(agendamento.getCliente().getEmail(), "Confirmação de Agendamento", "Seu agendamento foi confirmado para " + agendamento.getDataHora());
         return agendamentoRepository.save(agendamento);
     }
 
@@ -94,7 +98,7 @@ public class AgendamentoService {
             Agendamento agendamentoToUpdate = agendamento.get();
             agendamentoToUpdate.setCliente(agendamentoDetails.getCliente());
             agendamentoToUpdate.setProfissional(agendamentoDetails.getProfissional());
-            agendamentoToUpdate.setServico(agendamentoDetails.getServico());
+            agendamentoToUpdate.setEspecialidade(agendamentoDetails.getEspecialidade());
             agendamentoToUpdate.setPacoteServicos(agendamentoDetails.getPacoteServicos());
             agendamentoToUpdate.setDataHora(agendamentoDetails.getDataHora());
             agendamentoRepository.save(agendamentoToUpdate);

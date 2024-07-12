@@ -1,6 +1,6 @@
 package fiap.salaobeleza.dto;
 
-import fiap.salaobeleza.model.Servico;
+import fiap.salaobeleza.model.Especialidades;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
 import lombok.Getter;
@@ -27,13 +27,17 @@ public class ProfissionalDTO {
     private String telefone;
 
     @NotEmpty
-    private Set<Servico> servicosHabilitados;
+    private Set<Especialidades> especialidades;
 
-    public ProfissionalDTO(Long id, String nome, String email, String telefone, Set<Servico> servicosHabilitados) {
+    @NotEmpty
+    private String horariosDisponiveis;
+
+    public ProfissionalDTO(Long id, String nome, String email, String telefone, Set<Especialidades> especialidades, String horariosDisponiveis) {
         this.id = id;
         this.nome = nome;
         this.email = email;
         this.telefone = telefone;
-        this.servicosHabilitados = servicosHabilitados;
+        this.especialidades = especialidades;
+        this.horariosDisponiveis = horariosDisponiveis;
     }
 }

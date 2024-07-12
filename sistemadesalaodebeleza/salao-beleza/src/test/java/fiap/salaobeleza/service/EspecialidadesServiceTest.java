@@ -1,8 +1,8 @@
 package fiap.salaobeleza.service;
 
 import fiap.salaobeleza.exception.ResourceNotFoundException;
-import fiap.salaobeleza.model.Servico;
-import fiap.salaobeleza.repository.ServicoRepository;
+import fiap.salaobeleza.model.Especialidades;
+import fiap.salaobeleza.repository.EspecialidadeRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -15,88 +15,88 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
-public class ServicoServiceTest {
+public class EspecialidadesServiceTest {
 
     @Mock
-    private ServicoRepository servicoRepository;
+    private EspecialidadeRepository servicoRepository;
 
     @InjectMocks
-    private ServicoService servicoService;
+    private EspecialidadeService servicoService;
 
     @Test
     public void testGetAllServicos() {
-        Servico servico1 = new Servico(1L, "Corte de Cabelo", 50.0);
-        Servico servico2 = new Servico(2L, "Coloração", 100.0);
-        List<Servico> expectedServicos = Arrays.asList(servico1, servico2);
+        Especialidades servico1 = new Especialidades(1L, "Corte de Cabelo", 50.0);
+        Especialidades servico2 = new Especialidades(2L, "Coloração", 100.0);
+        List<Especialidades> expectedServicos = Arrays.asList(servico1, servico2);
 
         when(servicoRepository.findAll()).thenReturn(expectedServicos);
 
-        List<Servico> result = servicoService.getAllServicos();
+        List<Especialidades> result = servicoService.getAllEspecialidade();
 
         assertEquals(expectedServicos, result);
     }
 
     @Test
     public void testGetServicoById() {
-        Servico servico = new Servico(1L, "Corte de Cabelo", 50.0);
-        Optional<Servico> optionalServico = Optional.of(servico);
+        Especialidades servico = new Especialidades(1L, "Corte de Cabelo", 50.0);
+        Optional<Especialidades> optionalServico = Optional.of(servico);
 
         when(servicoRepository.findById(1L)).thenReturn(optionalServico);
 
-        Servico result = servicoService.getServicoById(1L);
+        Especialidades result = servicoService.getEspecialidadeById(1L);
 
         assertEquals(servico, result);
     }
 
     @Test
     public void testGetServicoByIdNotFound() {
-        Optional<Servico> optionalServico = Optional.empty();
+        Optional<Especialidades> optionalServico = Optional.empty();
 
         when(servicoRepository.findById(1L)).thenReturn(optionalServico);
 
-        assertThrows(ResourceNotFoundException.class, () -> servicoService.getServicoById(1L));
+        assertThrows(ResourceNotFoundException.class, () -> servicoService.getEspecialidadeById(1L));
     }
 
     @Test
     public void testCreateServico() {
-        Servico servico = new Servico(1L, "Corte de Cabelo", 50.0);
+        Especialidades servico = new Especialidades(1L, "Corte de Cabelo", 50.0);
 
         when(servicoRepository.save(servico)).thenReturn(servico);
 
-        Servico result = servicoService.createServico(servico);
+        Especialidades result = servicoService.createEspecialidade(servico);
 
         assertEquals(servico, result);
     }
 
     @Test
     public void testUpdateServico() {
-        Servico servico = new Servico(1L, "Corte de Cabelo", 50.0);
-        Servico updatedServico = new Servico(1L, "Coloração", 100.0);
+        Especialidades servico = new Especialidades(1L, "Corte de Cabelo", 50.0);
+        Especialidades updatedServico = new Especialidades(1L, "Coloração", 100.0);
 
         when(servicoRepository.findById(1L)).thenReturn(Optional.of(servico));
         when(servicoRepository.save(servico)).thenReturn(updatedServico);
 
-        Servico result = servicoService.updateServico(1L, updatedServico);
+        Especialidades result = servicoService.updateEspecialidade(1L, updatedServico);
 
         assertEquals(updatedServico, result);
     }
 
     @Test
     public void testUpdateServicoNotFound() {
-        Servico updatedServico = new Servico(1L, "Coloração", 100.0);
+        Especialidades updatedServico = new Especialidades(1L, "Coloração", 100.0);
 
         when(servicoRepository.findById(1L)).thenReturn(Optional.empty());
 
-        assertThrows(ResourceNotFoundException.class, () -> servicoService.updateServico(1L, updatedServico));
+        assertThrows(ResourceNotFoundException.class, () -> servicoService.updateEspecialidade(1L, updatedServico));
     }
 
     @Test
     public void testDeleteServico() {
-        Servico servico = new Servico(1L, "Corte de Cabelo", 50.0);
+        Especialidades servico = new Especialidades(1L, "Corte de Cabelo", 50.0);
 
         when(servicoRepository.findById(1L)).thenReturn(Optional.of(servico));
 
-        servicoService.deleteServico(1L);
+        servicoService.deleteEspecialidade(1L);
 
         verify(servicoRepository, times(1)).delete(servico);
     }
@@ -105,6 +105,6 @@ public class ServicoServiceTest {
     public void testDeleteServicoNotFound() {
         when(servicoRepository.findById(1L)).thenReturn(Optional.empty());
 
-        assertThrows(ResourceNotFoundException.class, () -> servicoService.deleteServico(1L));
+        assertThrows(ResourceNotFoundException.class, () -> servicoService.deleteEspecialidade(1L));
     }
 }

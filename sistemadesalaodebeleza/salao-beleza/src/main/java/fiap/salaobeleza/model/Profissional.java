@@ -28,15 +28,16 @@ public class Profissional {
 
     @ManyToMany
     @NotEmpty
-    private Set<Servico> servicosHabilitados;
+    private Set<Especialidades> especialidades;
 
+    private String horariosDisponiveis;
 
-    public Set<Servico> getServicosHabilitados() {
-		return servicosHabilitados;
+    public Set<Especialidades> getEspecialidades() {
+		return especialidades;
 	}
 
-	public void setServicosHabilitados(Set<Servico> servicosHabilitados) {
-		this.servicosHabilitados = servicosHabilitados;
+	public void setEspecialidades(Set<Especialidades> especialidades) {
+		this.especialidades = especialidades;
 	}
 }
 

@@ -2,9 +2,9 @@ package fiap.salaobeleza.performance;
 
 import fiap.salaobeleza.model.Agendamento;
 import fiap.salaobeleza.model.Cliente;
-import fiap.salaobeleza.model.Servico;
+import fiap.salaobeleza.model.Especialidades;
 import fiap.salaobeleza.repository.ClienteRepository;
-import fiap.salaobeleza.repository.ServicoRepository;
+import fiap.salaobeleza.repository.EspecialidadeRepository;
 import jakarta.persistence.EntityNotFoundException;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +30,7 @@ import static org.junit.Assert.assertNotNull;
 public class AgendamentoSimultaneo {
 
     @Autowired
-    private ServicoRepository servicoRepository;
+    private EspecialidadeRepository servicoRepository;
 
     @Autowired
     private ClienteRepository clienteRepository;
@@ -46,11 +46,11 @@ public class AgendamentoSimultaneo {
         List<Callable<ResponseEntity<String>>> tasks = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
 
-            Servico servico = servicoRepository.findById(1L).orElseThrow(() -> new EntityNotFoundException("Serviço não encontrado"));
+            Especialidades servico = servicoRepository.findById(1L).orElseThrow(() -> new EntityNotFoundException("Serviço não encontrado"));
             Cliente cliente = clienteRepository.findById(2L).orElseThrow(() -> new EntityNotFoundException("Cliente não encontrado"));
 
             Agendamento agendamento = new Agendamento();
-            agendamento.setServico(servico);
+            agendamento.setEspecialidade(servico);
             agendamento.setCliente(cliente);
             agendamento.setDataHora(LocalDateTime.of(2023, Month.OCTOBER, 5, 14, 0));
 
