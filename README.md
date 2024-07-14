@@ -1,6 +1,6 @@
 # Sistema de Salão de Beleza
 
-Este projeto é um Sistema de Salão de Beleza desenvolvido para atender gerenciar serviços de beleza, oferecendo uma solução completa para agendamento de serviços relacionados à beleza e bem-estar. Utilizando tecnologias modernas como Java 17, Spring, Docker, este sistema abrange desde o agendamento de serviços até a avaliação dos clientes.
+Este projeto é um Sistema de Salão de Beleza desenvolvido para atender gerenciar serviços de beleza, oferecendo uma solução completa para agendamento de serviços relacionados à beleza e bem-estar. Utilizando tecnologias modernas como Java 17, Spring, Docker, Testes Unitários (TDD), BDD, Testes de Integração e Continuous Integration (CI), Testes Não Funcionais, Ambientes Deploy ECS AWS este sistema abrange desde o agendamento de serviços até a avaliação dos clientes, desenvolvido com base em uma arquitetura limpa e modular, seguindo as melhores práticas de desenvolvimento de software. O sistema foi dividido em módulos para facilitar a manutenção e a evolução do código, além de garantir a escalabilidade e a flexibilidade do sistema.
 
 ## Tecnologias Adotadas
 
@@ -8,6 +8,36 @@ Este projeto é um Sistema de Salão de Beleza desenvolvido para atender gerenci
 - **Spring**: Framework utilizado para a construção de aplicativos Java.
 - **Docker**: Plataforma de software que permite a criação, o envio e a execução de aplicativos em contêineres.
 - **MySQL**: Banco de dados relacional utilizado para armazenar outras informações do sistema.
+- **Testes Unitários (TDD)**: Cobertura de testes com Junit e Mockito.
+- **BDD**: Desenvolvimento orientado a comportamento com Cucumber.
+- **Testes de Integração**: Testes de integração com Spring Boot Test.
+- **Continuous Integration (CI)**: Integração contínua com GitHub Actions.
+- **Testes Não Funcionais**: Testes de desempenho com JMeter.
+- **Ambientes Deploy ECS AWS**: Deploy do sistema em ambientes AWS.
+- **Swagger**: Documentação da API com Swagger.
+- **Postman**: Testes de API com Postman.
+- **Git**: Sistema de controle de versão distribuído.
+- **GitHub**: Plataforma de hospedagem de código-fonte.
+- **IDE**: IntelliJ IDEA.
+- **Maven**: Gerenciador de dependências.
+- **Lombok**: Biblioteca Java que ajuda a reduzir o código boilerplate.
+- **ModelMapper**: Framework Java que simplifica a conversão de objetos.
+- **Spring Security**: Framework Java que fornece autenticação e autorização.
+- **Spring Web**: Framework Java que fornece suporte para aplicativos web.
+- **Spring Boot Actuator**: Framework Java que fornece recursos para monitoramento e gerenciamento de aplicativos.
+- **Spring Boot DevTools**: Framework Java que fornece ferramentas de desenvolvimento.
+- **Spring Boot Test**: Framework Java que fornece suporte para testes de aplicativos.
+- **Spring Boot Validation**: Framework Java que fornece validação de dados.
+- **Spring Boot Starter Data JPA**: Framework Java que fornece suporte para acesso a dados.
+- **Cloud AWS**: Framework Java que fornece suporte para serviços em nuvem.
+- **Cucumber**: Framework Java que fornece suporte para BDD.
+- **Clean Architecture**: Arquitetura de software que separa as responsabilidades em camadas.
+
+## Dificuldades Encontradas
+Muitas dificuldades foram encontradas durante o desenvolvimento do projeto, como a configuração do ambiente de desenvolvimento, a integração de serviços, a implementação de testes, a criação de pipelines de CI/CD, a documentação da API, a execução de testes de desempenho e a implantação do sistema em ambientes AWS. No entanto, muitas dessas dificuldades foram superadas com a ajuda de tutoriais e documentações.
+
+## Estrutura do Projeto
+A estrutura do projeto foi organizada de acordo com os princípios da arquitetura limpa, seguindo as melhores práticas de desenvolvimento de software. O projeto foi dividido em módulos para facilitar a manutenção e a evolução do código, além de garantir a escalabilidade e a flexibilidade do sistema. A estrutura do projeto é composta por quatro módulos principais: `agendamento`, `profissional`, `especialidade` e `estabelecimento`.
 
 ### Módulos do Sistema
 
