@@ -15,7 +15,7 @@ O projeto Sistema de Salão de Beleza é uma aplicação desenvolvida para geren
 - **JGitHub Actions**: Para Continuous Integration (CI), automatizando testes e builds.
 - **JJMeter**: Para testes de desempenho.
 - **JAWS ECS**: Para deploy do sistema em ambientes de cloud.
-- **JSwagger**: Para documentação da API.
+- **JavaDoc**: Para documentação do código.
 - **JPostman**: Para testes de API.
 - **JLombok**: Para redução de código boilerplate.
 - **JModelMapper**: Para simplificar a conversão de objetos.
@@ -398,7 +398,7 @@ Após seguir essas etapas, o sistema estará em execução em sua máquina local
 ### Recursos do Projeto:
 
 - Link do projeto no GitHub:(https://github.com/LucianneCharro/fase3)
-- Documentação da API: A documentação completa da API está disponível em Swagger, que pode ser acessada através do endpoint /swagger-ui.html após iniciar o projeto.
+- Documentação da API: A documentação completa da API está disponível em Javadoc, que pode ser acessada através do diretório  target/site/apidocs/index.html após a execução do projeto. mvn javadoc:javadoc
 - Código Fonte: O código fonte do projeto está disponível no GitHub, permitindo que qualquer pessoa possa contribuir ou fazer fork do projeto para uso próprio.
 - Testes: O projeto inclui testes unitários e de integração, garantindo a qualidade e a funcionalidade das aplicações.
 - Docker: Arquivos Dockerfile e docker-compose.yml estão disponíveis para facilitar a implantação e execução do projeto em ambientes isolados.

@@ -1,0 +1,9 @@
+fiap.salaobeleza
+fiap.salaobeleza.config
+fiap.salaobeleza.controller
+fiap.salaobeleza.controller.controllerhandler
+fiap.salaobeleza.dto
+fiap.salaobeleza.exception
+fiap.salaobeleza.model
+fiap.salaobeleza.repository
+fiap.salaobeleza.service

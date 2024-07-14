@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: fiap.salaobeleza.ServiceIntegration.EstabelecimentoIntegrationTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.173 s - in fiap.salaobeleza.ServiceIntegration.EstabelecimentoIntegrationTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.167 s - in fiap.salaobeleza.ServiceIntegration.EstabelecimentoIntegrationTest

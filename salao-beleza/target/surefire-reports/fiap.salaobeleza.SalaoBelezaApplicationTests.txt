@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: fiap.salaobeleza.SalaoBelezaApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.806 s - in fiap.salaobeleza.SalaoBelezaApplicationTests
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.065 s - in fiap.salaobeleza.SalaoBelezaApplicationTests
