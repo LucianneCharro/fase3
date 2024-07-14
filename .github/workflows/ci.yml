@@ -19,6 +19,6 @@ jobs:
           java-version: '17'
           distribution: 'adopt'
       - name: Build with Maven
-        run: mvn -B package --file sistemadesalaodebeleza-main/salao-beleza/pom.xml
+        run: mvn -B package --file salao-beleza/pom.xml
       - name: Test with Maven
-        run: mvn -B test --file sistemadesalaodebeleza-main/salao-beleza/pom.xml
+        run: mvn -B test --file salao-beleza/pom.xml
