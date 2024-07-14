@@ -52,7 +52,6 @@ public class EstabelecimentoService {
             if (nome != null) {
                 predicates.add(criteriaBuilder.like(root.get("nome"), "%" + nome + "%"));
             }
-            // Avaliar se vamos incluir mais condições conforme necessário
             return criteriaBuilder.and(predicates.toArray(new Predicate[0]));
         });
     }

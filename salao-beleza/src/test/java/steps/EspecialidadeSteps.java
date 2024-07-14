@@ -16,7 +16,7 @@ public class EspecialidadeSteps {
     @Autowired
     private TestRestTemplate restTemplate;
 
-    private ResponseEntity<String> response; // Para armazenar a resposta
+    private ResponseEntity<String> response;
 
     @Given("the system has especialidades")
     public void the_system_has_especialidades() {

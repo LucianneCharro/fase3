@@ -1,3 +1,5 @@
+# language: pt
+
 Funcionalidade: Gerenciamento de Estabelecimentos
   Como um usuário do sistema
   Eu quero adicionar, listar, atualizar e deletar estabelecimentos

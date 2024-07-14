@@ -13,7 +13,6 @@ public class EstabelecimentoDTO {
     private String horarioFuncionamento;
     private List<String> fotos;
 
-    // Getters e Setters
     public Long getId() {
         return id;
     }

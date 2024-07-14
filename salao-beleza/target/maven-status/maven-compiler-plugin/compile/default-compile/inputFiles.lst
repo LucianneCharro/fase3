@@ -2,10 +2,8 @@
 /Users/luciannecharro/Downloads/sistemadesalaodebeleza-main/salao-beleza/src/main/java/fiap/salaobeleza/service/EstabelecimentoService.java
 /Users/luciannecharro/Downloads/sistemadesalaodebeleza-main/salao-beleza/src/main/java/fiap/salaobeleza/controller/AvaliacaoController.java
 /Users/luciannecharro/Downloads/sistemadesalaodebeleza-main/salao-beleza/src/main/java/fiap/salaobeleza/model/Agendamento.java
-/Users/luciannecharro/Downloads/sistemadesalaodebeleza-main/salao-beleza/src/main/java/fiap/salaobeleza/dto/package-info.java
 /Users/luciannecharro/Downloads/sistemadesalaodebeleza-main/salao-beleza/src/main/java/fiap/salaobeleza/service/AvaliacaoService.java
 /Users/luciannecharro/Downloads/sistemadesalaodebeleza-main/salao-beleza/src/main/java/fiap/salaobeleza/service/ClienteService.java
-/Users/luciannecharro/Downloads/sistemadesalaodebeleza-main/salao-beleza/src/main/java/fiap/salaobeleza/config/OpenApiConfig.java
 /Users/luciannecharro/Downloads/sistemadesalaodebeleza-main/salao-beleza/src/main/java/fiap/salaobeleza/controller/AgendamentoController.java
 /Users/luciannecharro/Downloads/sistemadesalaodebeleza-main/salao-beleza/src/main/java/fiap/salaobeleza/repository/PacoteServicosRepository.java
 /Users/luciannecharro/Downloads/sistemadesalaodebeleza-main/salao-beleza/src/main/java/fiap/salaobeleza/model/Profissional.java
@@ -19,6 +17,7 @@
 /Users/luciannecharro/Downloads/sistemadesalaodebeleza-main/salao-beleza/src/main/java/fiap/salaobeleza/controller/EstabelecimentoController.java
 /Users/luciannecharro/Downloads/sistemadesalaodebeleza-main/salao-beleza/src/main/java/fiap/salaobeleza/controller/EspecialidadeController.java
 /Users/luciannecharro/Downloads/sistemadesalaodebeleza-main/salao-beleza/src/main/java/fiap/salaobeleza/service/AgendamentoService.java
+/Users/luciannecharro/Downloads/sistemadesalaodebeleza-main/salao-beleza/src/main/java/fiap/salaobeleza/config/SpringDocConfig.java
 /Users/luciannecharro/Downloads/sistemadesalaodebeleza-main/salao-beleza/src/main/java/fiap/salaobeleza/model/Disponibilidade.java
 /Users/luciannecharro/Downloads/sistemadesalaodebeleza-main/salao-beleza/src/main/java/fiap/salaobeleza/controller/ClienteController.java
 /Users/luciannecharro/Downloads/sistemadesalaodebeleza-main/salao-beleza/src/main/java/fiap/salaobeleza/controller/controllerhandler/GlobalExceptionHandler.java

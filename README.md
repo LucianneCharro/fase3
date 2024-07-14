@@ -1,47 +1,37 @@
 # Sistema de Salão de Beleza
 
-Este projeto é um Sistema de Salão de Beleza desenvolvido para atender gerenciar serviços de beleza, oferecendo uma solução completa para agendamento de serviços relacionados à beleza e bem-estar. Utilizando tecnologias modernas como Java 17, Spring, Docker, Testes Unitários (TDD), BDD, Testes de Integração e Continuous Integration (CI), Testes Não Funcionais, Ambientes Deploy ECS AWS este sistema abrange desde o agendamento de serviços até a avaliação dos clientes, desenvolvido com base em uma arquitetura limpa e modular, seguindo as melhores práticas de desenvolvimento de software. O sistema foi dividido em módulos para facilitar a manutenção e a evolução do código, além de garantir a escalabilidade e a flexibilidade do sistema.
+O projeto Sistema de Salão de Beleza é uma aplicação desenvolvida para gerenciar serviços de beleza, abrangendo desde o agendamento de serviços até a avaliação dos clientes. Utiliza uma arquitetura limpa e modular, seguindo as melhores práticas de desenvolvimento de software. O sistema é dividido em módulos para facilitar a manutenção, evolução do código, escalabilidade e flexibilidade.
 
 ## Tecnologias Adotadas
 
-- **Java 17**: Linguagem de programação utilizada para o desenvolvimento do sistema.
-- **Spring**: Framework utilizado para a construção de aplicativos Java.
-- **Docker**: Plataforma de software que permite a criação, o envio e a execução de aplicativos em contêineres.
-- **MySQL**: Banco de dados relacional utilizado para armazenar outras informações do sistema.
-- **Testes Unitários (TDD)**: Cobertura de testes com Junit e Mockito.
-- **BDD**: Desenvolvimento orientado a comportamento com Cucumber.
-- **Testes de Integração**: Testes de integração com Spring Boot Test.
-- **Continuous Integration (CI)**: Integração contínua com GitHub Actions.
-- **Testes Não Funcionais**: Testes de desempenho com JMeter.
-- **Ambientes Deploy ECS AWS**: Deploy do sistema em ambientes AWS.
-- **Swagger**: Documentação da API com Swagger.
-- **Postman**: Testes de API com Postman.
-- **Git**: Sistema de controle de versão distribuído.
-- **GitHub**: Plataforma de hospedagem de código-fonte.
-- **IDE**: IntelliJ IDEA.
-- **Maven**: Gerenciador de dependências.
-- **Lombok**: Biblioteca Java que ajuda a reduzir o código boilerplate.
-- **ModelMapper**: Framework Java que simplifica a conversão de objetos.
-- **Spring Security**: Framework Java que fornece autenticação e autorização.
-- **Spring Web**: Framework Java que fornece suporte para aplicativos web.
-- **Spring Boot Actuator**: Framework Java que fornece recursos para monitoramento e gerenciamento de aplicativos.
-- **Spring Boot DevTools**: Framework Java que fornece ferramentas de desenvolvimento.
-- **Spring Boot Test**: Framework Java que fornece suporte para testes de aplicativos.
-- **Spring Boot Validation**: Framework Java que fornece validação de dados.
-- **Spring Boot Starter Data JPA**: Framework Java que fornece suporte para acesso a dados.
-- **Cloud AWS**: Framework Java que fornece suporte para serviços em nuvem.
-- **Cucumber**: Framework Java que fornece suporte para BDD.
-- **Clean Architecture**: Arquitetura de software que separa as responsabilidades em camadas.
+- **Java 17**: Linguagem de programação principal.
+- **JSpring Framework**: Para construção de aplicativos Java, incluindo Spring Boot para microserviços, Spring Security para autenticação/autorização, e Spring Data JPA para acesso a dados.
+- **JMaven**: Gerenciamento de dependências e build do projeto.
+- **JDocker**: Para containerização e isolamento do ambiente de execução.
+- **JMySQL**: Banco de dados relacional para persistência de dados.
+- **JJUnit e Mockito**: Para testes unitários seguindo a metodologia TDD.
+- **JCucumber**: Para testes BDD, permitindo a descrição de funcionalidades em linguagem natural.
+- **JSpring Boot Test**: Para testes de integração.
+- **JGitHub Actions**: Para Continuous Integration (CI), automatizando testes e builds.
+- **JJMeter**: Para testes de desempenho.
+- **JAWS ECS**: Para deploy do sistema em ambientes de cloud.
+- **JSwagger**: Para documentação da API.
+- **JPostman**: Para testes de API.
+- **JLombok**: Para redução de código boilerplate.
+- **JModelMapper**: Para simplificar a conversão de objetos.
+- **JIDE**: IntelliJ IDEA, recomendado para desenvolvimento.
 
-## Dificuldades Encontradas
-Muitas dificuldades foram encontradas durante o desenvolvimento do projeto, como a configuração do ambiente de desenvolvimento, a integração de serviços, a implementação de testes, a criação de pipelines de CI/CD, a documentação da API, a execução de testes de desempenho e a implantação do sistema em ambientes AWS. No entanto, muitas dessas dificuldades foram superadas com a ajuda de tutoriais e documentações.
+## Desafios e Soluções
+Durante o desenvolvimento, foram enfrentados desafios como configuração do ambiente, integração de serviços, implementação de testes, criação de pipelines de CI/CD, documentação da API, execução de testes de desempenho e implantação em ambientes AWS. Soluções foram encontradas através de tutoriais, documentações e melhores práticas da comunidade.
+Este detalhamento técnico oferece uma visão geral do projeto, suas tecnologias, estrutura, e como ele é executado e testado, além de abordar os desafios encontrados e como foram superados.
 
 ## Estrutura do Projeto
-A estrutura do projeto foi organizada de acordo com os princípios da arquitetura limpa, seguindo as melhores práticas de desenvolvimento de software. O projeto foi dividido em módulos para facilitar a manutenção e a evolução do código, além de garantir a escalabilidade e a flexibilidade do sistema. A estrutura do projeto é composta por quatro módulos principais: `agendamento`, `profissional`, `especialidade` e `estabelecimento`.
+O projeto é organizado em módulos principais como agendamento, profissional, especialidade, e estabelecimento, cada um responsável por uma parte específica da lógica de negócio e funcionalidades do sistema.
+
+## Execução e Testes
+O sistema pode ser executado localmente seguindo os passos de clonagem do repositório, importação como projeto Maven, execução via Docker Compose para os serviços necessários, e inicialização da aplicação principal através da IDE. A aplicação está configurada para rodar na porta 8081, conforme especificado no arquivo application.yaml.
 
 ### Módulos do Sistema
-
-### 1. Especialidade
 
 Comandos curls para teste em linha de comando:
 
@@ -382,6 +372,8 @@ curl --request PUT \
 Siga as etapas abaixo para executar o projeto em sua máquina local:
 
 1. **Clone o Repositório:
+   git clone https://github.com/LucianneCharro/fase3.git
+
 2. **Importe o Projeto na sua IDE:**
 
 Abra o projeto em sua IDE favorita (por exemplo, IntelliJ IDEA, Eclipse) e importe-o como um projeto Maven.
@@ -389,6 +381,7 @@ Abra o projeto em sua IDE favorita (por exemplo, IntelliJ IDEA, Eclipse) e impor
 3.**Execute o Docker Compose:**
 
 Certifique-se de ter o Docker instalado em sua máquina. Navegue até o diretório raiz do projeto clonado e execute o seguinte comando para iniciar os contêineres do sistema:
+docker-compose up -d
 
 4.**Inicie os Serviços:**
 
@@ -405,5 +398,11 @@ Após seguir essas etapas, o sistema estará em execução em sua máquina local
 ### Recursos do Projeto:
 
 - Link do projeto no GitHub:(https://github.com/LucianneCharro/fase3)
+- Documentação da API: A documentação completa da API está disponível em Swagger, que pode ser acessada através do endpoint /swagger-ui.html após iniciar o projeto.
+- Código Fonte: O código fonte do projeto está disponível no GitHub, permitindo que qualquer pessoa possa contribuir ou fazer fork do projeto para uso próprio.
+- Testes: O projeto inclui testes unitários e de integração, garantindo a qualidade e a funcionalidade das aplicações.
+- Docker: Arquivos Dockerfile e docker-compose.yml estão disponíveis para facilitar a implantação e execução do projeto em ambientes isolados.
+- CI/CD: Configurações para integração e entrega contínuas estão disponíveis através do uso de GitHub Actions, automatizando o processo de build e deploy.
+- AWS: O projeto está configurado para ser implantado em ambientes AWS, utilizando serviços como ECS para orquestração de contêineres.
 
-Este README fornece uma visão geral do sistema e das tecnologias utilizadas, além de recursos adicionais para mais informações sobre o projeto .
+- Este README fornece uma visão geral do sistema e das tecnologias utilizadas, além de recursos adicionais para mais informações sobre o projeto .

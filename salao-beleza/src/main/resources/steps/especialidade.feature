@@ -1,4 +1,6 @@
-Feature: Especialidade management
+# language: pt
+
+Feature: Especialidade
 
   Scenario: Client requests all especialidades
     Given the system has especialidades

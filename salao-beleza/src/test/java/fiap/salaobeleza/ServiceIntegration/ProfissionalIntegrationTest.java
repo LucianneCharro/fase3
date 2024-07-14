@@ -31,16 +31,13 @@ public class ProfissionalIntegrationTest {
         Profissional profissionalMock = new Profissional();
         profissionalMock.setId(1L);
         profissionalMock.setNome("Profissional Teste");
-        // Configura o mock para retornar o profissionalMock quando findById(1L) for chamado
         when(profissionalRepository.findById(1L)).thenReturn(Optional.of(profissionalMock));
     }
 
     @Test
     public void testBuscarProfissionalPorId() {
-        // Ação: busca o profissional por ID
         Profissional profissionalEncontrado = profissionalService.getProfissionalById(1L);
 
-        // Verificação: o profissional foi encontrado corretamente
         assertNotNull(profissionalEncontrado);
         assertEquals("Profissional Teste", profissionalEncontrado.getNome());
     }

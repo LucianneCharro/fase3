@@ -32,16 +32,13 @@ public class EstabelecimentoIntegrationTest {
         estabelecimentoMock.setId(1L);
         estabelecimentoMock.setNome("Estabelecimento Teste");
         estabelecimentoMock.setEndereco("Endereço Teste");
-        // Configura o mock para retornar o estabelecimentoMock quando findById(1L) for chamado
         when(estabelecimentoRepository.findById(1L)).thenReturn(Optional.of(estabelecimentoMock));
     }
 
     @Test
     public void testBuscarEstabelecimentoPorId() {
-        // Ação: busca o estabelecimento por ID
         Optional<Estabelecimento> estabelecimentoEncontrado = estabelecimentoService.buscarPorId(1L);
 
-        // Verificação: o estabelecimento foi encontrado corretamente
         assertNotNull(estabelecimentoEncontrado);
         assertEquals("Estabelecimento Teste", estabelecimentoEncontrado.get().getNome());
         assertEquals("Endereço Teste", estabelecimentoEncontrado.get().getEndereco());

@@ -53,7 +53,7 @@ public class AgendamentoSteps {
         Cliente cliente = buscarClientePorId(1L);
 
         agendamento.setEspecialidade(especialidade);
-        agendamento.setDataHora(LocalDateTime.parse("2023-10-05T14:00:00"));
+        agendamento.setDataHora(LocalDateTime.parse("2024-07-05T14:00:00"));
         agendamento.setCliente(cliente);
 
         response = restTemplate.postForEntity(url, agendamento, String.class);

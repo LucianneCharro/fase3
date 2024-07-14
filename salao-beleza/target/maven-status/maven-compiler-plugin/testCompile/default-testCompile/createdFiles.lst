@@ -2,6 +2,7 @@ steps/EspecialidadeSteps.class
 fiap/salaobeleza/SalaoBelezaApplicationTests.class
 fiap/salaobeleza/service/PacoteServicosServiceTest.class
 fiap/salaobeleza/ServiceIntegration/AgendamentoIntegrationTest.class
+fiap/salaobeleza/ServiceIntegration/AvaliacaoIntegrationTest.class
 steps/ClienteSteps.class
 fiap/salaobeleza/performance/AgendamentoSimultaneo$AgendamentoTask.class
 fiap/salaobeleza/ServiceIntegration/ProfissionalIntegrationTest.class
@@ -14,6 +15,8 @@ steps/ProfissionalSteps.class
 fiap/salaobeleza/service/AgendamentoServiceTest.class
 fiap/salaobeleza/service/ProfissionalServiceTest.class
 fiap/salaobeleza/ServiceIntegration/ClienteIntegrationTest.class
+steps/AvaliacaoSteps.class
+fiap/salaobeleza/service/AvaliacaoServiceTest.class
 fiap/salaobeleza/service/EstabelecimentoServiceTest.class
 fiap/salaobeleza/ServiceIntegration/EspecialidadesIntegrationTest.class
 fiap/salaobeleza/ServiceIntegration/PacoteServicosIntegrationTest.class

@@ -30,7 +30,7 @@ public class EstabelecimentoSteps {
 
     @Dado("que eu quero ver todos os estabelecimentos cadastrados")
     public void que_eu_quero_ver_todos_os_estabelecimentos_cadastrados() {
-        List<EstabelecimentoDTO> dtos = Arrays.asList(new EstabelecimentoDTO(), new EstabelecimentoDTO()); // Example DTOs
+        List<EstabelecimentoDTO> dtos = Arrays.asList(new EstabelecimentoDTO(), new EstabelecimentoDTO());
         List<Estabelecimento> estabelecimentosMock = dtos.stream().map(dto -> convertToEntity(dto)).collect(Collectors.toList());
         Mockito.when(mockEstabelecimentoService.listarTodos()).thenReturn(estabelecimentosMock);
     }
@@ -48,7 +48,7 @@ public class EstabelecimentoSteps {
 
     @Dado("que eu quero adicionar um novo estabelecimento")
     public void que_eu_quero_adicionar_um_novo_estabelecimento() {
-        estabelecimentoDTO = new EstabelecimentoDTO(); // Preencha com dados de teste conforme necessário
+        estabelecimentoDTO = new EstabelecimentoDTO();
     }
 
     private Estabelecimento convertToEntity(EstabelecimentoDTO dto) {
@@ -56,7 +56,6 @@ public class EstabelecimentoSteps {
         estabelecimento.setId(dto.getId());
         estabelecimento.setNome(dto.getNome());
         estabelecimento.setEndereco(dto.getEndereco());
-        // Conversion for Set<Long> to Set<Servico> and Set<Profissional> is omitted for brevity
         estabelecimento.setHorarioFuncionamento(dto.getHorarioFuncionamento());
         estabelecimento.setFotos(dto.getFotos());
         return estabelecimento;

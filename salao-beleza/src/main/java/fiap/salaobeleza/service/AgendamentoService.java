@@ -114,7 +114,7 @@ public class AgendamentoService {
             Agendamento agendamento = agendamentoOptional.get();
             agendamento.setDataHora(novaDataHora);
             // Notificar cliente e profissional sobre o reagendamento
-   //       notificationService.sendNotification(agendamento.getCliente().getEmail(), "Reagendamento de Agendamento", "Seu agendamento foi reagendado para " + novaDataHora.toString());
+   //        notificationService.sendNotification(agendamento.getCliente().getEmail(), "Reagendamento de Agendamento", "Seu agendamento foi reagendado para " + novaDataHora.toString());
    //        notificationService.sendNotification(agendamento.getProfissional().getEmail(), "Reagendamento de Agendamento", "Um agendamento foi reagendado para " + novaDataHora.toString());
             // Salvar o agendamento atualizado
             agendamentoRepository.save(agendamento);

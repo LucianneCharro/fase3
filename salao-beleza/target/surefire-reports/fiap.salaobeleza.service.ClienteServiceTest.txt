@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: fiap.salaobeleza.service.ClienteServiceTest
 -------------------------------------------------------------------------------
-Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.319 s - in fiap.salaobeleza.service.ClienteServiceTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.324 s - in fiap.salaobeleza.service.ClienteServiceTest

@@ -31,16 +31,13 @@ public class ClienteIntegrationTest {
         Cliente clienteMock = new Cliente();
         clienteMock.setId(1L);
         clienteMock.setNome("Cliente Teste");
-        // Configura o mock para retornar o clienteMock quando findById(1L) for chamado
         when(clienteRepository.findById(1L)).thenReturn(Optional.of(clienteMock));
     }
 
     @Test
     public void testBuscarClientePorId() {
-        // Ação: busca o cliente por ID
         Cliente clienteEncontrado = clienteService.getClienteById(1L);
 
-        // Verificação: o cliente foi encontrado corretamente
         assertNotNull(clienteEncontrado);
         assertEquals("Cliente Teste", clienteEncontrado.getNome());
     }

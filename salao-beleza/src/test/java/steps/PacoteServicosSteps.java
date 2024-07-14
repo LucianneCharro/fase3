@@ -33,7 +33,7 @@ public class PacoteServicosSteps {
     @Then("a resposta deve ser uma lista de pacotes de serviços")
     public void a_resposta_deve_ser_uma_lista_de_pacotes_de_servicos() {
         assertEquals(200, response.getStatusCodeValue());
-        assertTrue(response.getBody().contains("lista_de_pacotes")); // Substitua "lista_de_pacotes" pelo detalhe específico esperado na resposta
+        assertTrue(response.getBody().contains("lista_de_pacotes"));
     }
 
     @Given("que eu quero obter informações de um pacote de serviços específico pelo seu ID")
@@ -48,7 +48,7 @@ public class PacoteServicosSteps {
     @Then("a resposta deve ser os detalhes do pacote de serviços correspondente")
     public void a_resposta_deve_ser_os_detalhes_do_pacote_de_servicos_correspondente() {
         assertEquals(200, response.getStatusCodeValue());
-        assertTrue(response.getBody().contains("detalhes_do_pacote")); // Substitua "detalhes_do_pacote" pelo detalhe específico esperado na resposta
+        assertTrue(response.getBody().contains("detalhes_do_pacote"));
     }
 
     @Given("que eu quero criar um novo pacote de serviços com os dados necessários")
@@ -63,7 +63,7 @@ public class PacoteServicosSteps {
     @Then("o pacote de serviços deve ser criado e a resposta deve ser os detalhes do pacote de serviços criado")
     public void o_pacote_de_servicos_deve_ser_criado_e_a_resposta_deve_ser_os_detalhes_do_pacote_de_servicos_criado() {
         assertEquals(HttpStatus.CREATED, response.getStatusCode());
-        assertTrue(response.getBody().contains("detalhes_do_pacote_criado")); // Substitua "detalhes_do_pacote_criado" pelo detalhe específico esperado na resposta
+        assertTrue(response.getBody().contains("detalhes_do_pacote_criado"));
     }
 
     @Given("que eu quero atualizar os dados de um pacote de serviços existente pelo seu ID")

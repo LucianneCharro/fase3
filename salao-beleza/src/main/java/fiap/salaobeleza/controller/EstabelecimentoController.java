@@ -45,14 +45,12 @@ public class EstabelecimentoController {
         estabelecimento.setHorarioFuncionamento((String) payload.get("horarioFuncionamento"));
         estabelecimento.setFotos((List<String>) payload.get("fotos"));
 
-        // Carregar e associar serviços oferecidos
         List<Integer> servicosOferecidosIds = (List<Integer>) payload.get("servicosOferecidosIds");
         Set<Especialidades> especialidadesOferecidas = servicosOferecidosIds.stream()
                 .map(id -> servicoRepository.findById(id.longValue()).orElse(null))
                 .collect(Collectors.toSet());
         estabelecimento.setEspecialidadeOferecidos(especialidadesOferecidas);
 
-        // Carregar e associar profissionais disponíveis
         List<Integer> profissionaisDisponiveisIds = (List<Integer>) payload.get("profissionaisDisponiveisIds");
         Set<Profissional> profissionaisDisponiveis = profissionaisDisponiveisIds.stream()
                 .map(id -> profissionalRepository.findById(id.longValue()).orElse(null))
@@ -61,7 +59,6 @@ public class EstabelecimentoController {
 
         return estabelecimentoService.salvar(estabelecimento);
     }
-
 
     @PutMapping("/{id}")
     public ResponseEntity<Estabelecimento> atualizar(@PathVariable Long id, @RequestBody Estabelecimento estabelecimento) {

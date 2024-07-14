@@ -32,7 +32,7 @@ public class ProfissionalSteps {
     @Then("a resposta deve ser uma lista de profissionais")
     public void a_resposta_deve_ser_uma_lista_de_profissionais() {
         assertEquals(HttpStatus.OK, response.getStatusCode());
-        assertTrue(response.getBody().contains("nome_do_profissional")); // Substitua "nome_do_profissional" pelo nome esperado nos dados de teste
+        assertTrue(response.getBody().contains("nome_do_profissional"));
     }
 
     @Given("que eu quero obter informações de um profissional específico pelo seu ID")
@@ -42,7 +42,7 @@ public class ProfissionalSteps {
     @Then("a resposta deve ser os detalhes do profissional correspondente")
     public void a_resposta_deve_ser_os_detalhes_do_profissional_correspondente() {
         assertEquals(HttpStatus.OK, response.getStatusCode());
-        assertTrue(response.getBody().contains("id_do_profissional")); // Substitua "id_do_profissional" pelo ID esperado nos dados de teste
+        assertTrue(response.getBody().contains("id_do_profissional"));
     }
 
     @Given("que eu quero criar um novo profissional com os dados necessários")
@@ -52,7 +52,7 @@ public class ProfissionalSteps {
     @Then("o profissional deve ser criado e a resposta deve ser os detalhes do profissional criado")
     public void o_profissional_deve_ser_criado_e_a_resposta_deve_ser_os_detalhes_do_profissional_criado() {
         assertEquals(HttpStatus.OK, response.getStatusCode());
-        assertTrue(response.getBody().contains("nome_do_profissional_criado")); // Substitua "nome_do_profissional_criado" pelo nome esperado nos dados de teste
+        assertTrue(response.getBody().contains("nome_do_profissional_criado"));
     }
 
     @Given("que eu quero atualizar os dados de um profissional existente pelo seu ID")
@@ -62,6 +62,6 @@ public class ProfissionalSteps {
     @Then("os dados do profissional devem ser atualizados e a resposta deve ser os detalhes do profissional atualizado")
     public void os_dados_do_profissional_devem_ser_atualizados_e_a_resposta_deve_ser_os_detalhes_do_profissional_atualizado() {
         assertEquals(HttpStatus.OK, response.getStatusCode());
-        assertTrue(response.getBody().contains("nome_do_profissional_atualizado")); // Substitua "nome_do_profissional_atualizado" pelo nome atualizado esperado nos dados de teste
-        assertTrue(response.getBody().contains("detalhe_especifico_atualizado")); // Substitua "detalhe_especifico_atualizado" por um detalhe específico que você espera que seja atualizado, como parte do profissional
+        assertTrue(response.getBody().contains("nome_do_profissional_atualizado"));
+        assertTrue(response.getBody().contains("detalhe_especifico_atualizado"));
     }}
