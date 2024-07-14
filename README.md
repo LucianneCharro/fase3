@@ -5,21 +5,20 @@ O projeto Sistema de Salão de Beleza é uma aplicação desenvolvida para geren
 ## Tecnologias Adotadas
 
 - **Java 17**: Linguagem de programação principal.
-- **JSpring Framework**: Para construção de aplicativos Java, incluindo Spring Boot para microserviços, Spring Security para autenticação/autorização, e Spring Data JPA para acesso a dados.
-- **JMaven**: Gerenciamento de dependências e build do projeto.
-- **JDocker**: Para containerização e isolamento do ambiente de execução.
-- **JMySQL**: Banco de dados relacional para persistência de dados.
-- **JJUnit e Mockito**: Para testes unitários seguindo a metodologia TDD.
-- **JCucumber**: Para testes BDD, permitindo a descrição de funcionalidades em linguagem natural.
-- **JSpring Boot Test**: Para testes de integração.
-- **JGitHub Actions**: Para Continuous Integration (CI), automatizando testes e builds.
-- **JJMeter**: Para testes de desempenho.
-- **JAWS ECS**: Para deploy do sistema em ambientes de cloud.
+- **Spring Framework**: Para construção de aplicativos Java, incluindo Spring Boot para microserviços, Spring Security para autenticação/autorização, e Spring Data JPA para acesso a dados.
+- **Maven**: Gerenciamento de dependências e build do projeto.
+- **Docker**: Para containerização e isolamento do ambiente de execução.
+- **MySQL**: Banco de dados relacional para persistência de dados.
+- **JUnit e Mockito**: Para testes unitários seguindo a metodologia TDD.
+- **Cucumber**: Para testes BDD, permitindo a descrição de funcionalidades em linguagem natural.
+- **Spring Boot Test**: Para testes de integração.
+- **GitHub Actions**: Para Continuous Integration (CI), automatizando testes e builds.
+- **AWS ECS**: Para deploy do sistema em ambientes de cloud.
 - **JavaDoc**: Para documentação do código.
-- **JPostman**: Para testes de API.
-- **JLombok**: Para redução de código boilerplate.
-- **JModelMapper**: Para simplificar a conversão de objetos.
-- **JIDE**: IntelliJ IDEA, recomendado para desenvolvimento.
+- **Postman**: Para testes de API.
+- **Lombok**: Para redução de código boilerplate.
+- **ModelMapper**: Para simplificar a conversão de objetos.
+- **IDE**: IntelliJ IDEA, recomendado para desenvolvimento.
 
 ## Desafios e Soluções
 Durante o desenvolvimento, foram enfrentados desafios como configuração do ambiente, integração de serviços, implementação de testes, criação de pipelines de CI/CD, documentação da API, execução de testes de desempenho e implantação em ambientes AWS. Soluções foram encontradas através de tutoriais, documentações e melhores práticas da comunidade.
